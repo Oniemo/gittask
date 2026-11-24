@@ -1,5 +1,5 @@
-const { Router } = require('express');
-const Book = require('../models/book');
+import { Router } from 'express';
+import Book from '../models/book.js';
 
 const router = Router();
 
@@ -13,4 +13,4 @@ router.get('/', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

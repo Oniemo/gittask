@@ -1,6 +1,7 @@
 {
   "name": "git-task",
   "version": "1.0.0",
+   "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,7 +12,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
     "express": "^5.3.0",
     "sequelize": "^6.37.8",

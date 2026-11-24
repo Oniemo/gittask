@@ -1,5 +1,5 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../db');
+import { DataTypes } from 'sequelize';
+import sequelize from '../db.js';
 
 const Book = sequelize.define('Book', {
   title: {
@@ -19,4 +19,4 @@ const Book = sequelize.define('Book', {
   timestamps: true,
 });
 
-module.exports = Book;
+export default Book;
