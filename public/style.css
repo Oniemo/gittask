@@ -1,0 +1,124 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  background: #050510;
+  color: #d8faff;
+  font-family: 'Consolas', 'Courier New', monospace;
+  overflow-x: hidden;
+}
+
+/* фоновая сетка */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 255, 240, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 240, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+/* сканирующая линия */
+.scanline {
+  position: fixed;
+  left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00ffe1, transparent);
+  opacity: 0.35;
+  animation: scan 6s linear infinite;
+  pointer-events: none;
+}
+@keyframes scan {
+  0%   { top: -2%; }
+  100% { top: 102%; }
+}
+
+header {
+  padding: 40px 8% 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+h1 {
+  font-size: clamp(1.4rem, 4vw, 2.4rem);
+  letter-spacing: 6px;
+  color: #00ffe1;
+  text-shadow: 0 0 12px #00ffe1, 0 0 40px rgba(0, 255, 225, 0.5);
+}
+h1 span { color: #ff2bd6; text-shadow: 0 0 12px #ff2bd6; }
+
+.status {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: #6a7f8f;
+}
+.status b { color: #00ffe1; }
+
+main { padding: 20px 8% 60px; }
+
+.loader {
+  letter-spacing: 4px;
+  color: #00ffe1;
+  text-align: center;
+  padding: 80px 0;
+  text-shadow: 0 0 10px #00ffe1;
+}
+.dots::after {
+  content: '';
+  animation: dots 1.2s steps(4) infinite;
+}
+@keyframes dots {
+  0% { content: ''; }  25% { content: '.'; }
+  50% { content: '..'; } 75% { content: '...'; }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  position: relative;
+  padding: 24px;
+  border: 1px solid rgba(0, 255, 225, 0.35);
+  background: rgba(10, 16, 30, 0.75);
+  backdrop-filter: blur(4px);
+  clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+  transition: transform 0.25s, box-shadow 0.25s;
+  animation: appear 0.5s backwards;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 24px rgba(0, 255, 225, 0.35);
+}
+@keyframes appear {
+  from { opacity: 0; transform: translateY(16px); }
+}
+
+.card .id {
+  font-size: 0.7rem;
+  color: #ff2bd6;
+  letter-spacing: 3px;
+}
+.card h2 {
+  margin: 10px 0 6px;
+  font-size: 1.15rem;
+  color: #eafcff;
+}
+.card .author {
+  color: #00ffe1;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+.card .year {
+  margin-top: 14px;
+  font-size: 0.8rem;
+  color: #6a7f8f;
+}
+.card .year b { color: #d8faff; }
