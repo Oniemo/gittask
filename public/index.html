@@ -3,19 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>БИБЛИОТЕКА</title>
+  <title>xtal · библиотека</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="scanline"></div>
+  <div class="logo-wrapper" aria-hidden="true">
+    <svg class="logo" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+      <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="4"/>
+      <path d="M32 38 L50 68 L68 38 H32 Z" fill="currentColor"/>
+    </svg>
+  </div>
+
+  <div class="snow" aria-hidden="true">
+    <div></div><div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div><div></div>
+  </div>
+
   <header>
-    <h1>◦ БИБЛИОТЕКА <span>2077</span></h1>
-    <div class="status">СВЯЗЬ С ЯДРОМ: <b id="status">УСТАНОВКА...</b></div>
+    <h1>xtal</h1>
+    <div class="status">СИГНАЛ: <b id="status">НАСТРОЙКА ВОЛНЫ...</b></div>
   </header>
+
   <main>
-    <div id="loader" class="loader">ЗАГРУЗКА ДАННЫХ<span class="dots"></span></div>
+    <div id="loader" class="loader">ambient loading ...</div>
     <div id="books" class="grid"></div>
   </main>
+
+  <footer>
+    <div class="secret">selected ambient works · дышать медленно</div>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
